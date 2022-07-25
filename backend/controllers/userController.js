@@ -31,14 +31,14 @@ const registerUser = asyncHandler(async (req, res) => {
 
   // Hash password
   const salt = await bcrypt.genSalt(10)
-  const hashedPAssword = await bcrypt.hash(password, salt)
+  const hashedPassword = await bcrypt.hash(password, salt)
 
   // Create user
   // Timo timo@gmail.com timo123
   const user = await User.create({
     name,
     email,
-    password: hashedPAssword,
+    password: hashedPassword,
   })
 
   if (user) {
